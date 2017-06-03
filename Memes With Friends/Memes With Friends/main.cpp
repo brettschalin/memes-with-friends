@@ -5,11 +5,15 @@
 #include <allegro5/allegro_physfs.h>
 #include <physfs.h>
 #include "Card.h"
+#include "GameManager.h"
 
 const float FPS = 60;
 const int SCREEN_W = 1920;
 const int SCREEN_H = 1080;
 ALLEGRO_COLOR BACKGROUND_COLOR; // set after allegro is initialized
+
+GameManager* gameManager; //initialized after allegro 
+
 
 int main(int argc, char **argv)
 {
@@ -96,6 +100,9 @@ int main(int argc, char **argv)
 
 	al_start_timer(timer);
 
+
+	gameManager = new GameManager();
+
 	Card *test_card = new Card();
 	test_card->set_color(al_map_rgb(255, 0, 0));
 	test_card->set_pos(50, 50);
@@ -131,5 +138,6 @@ int main(int argc, char **argv)
 	al_destroy_display(display);
 	al_destroy_event_queue(event_queue);
 
+	delete gameManager;
 	return 0;
 }
