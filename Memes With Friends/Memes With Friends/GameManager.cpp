@@ -80,7 +80,6 @@ void GameManager::playCard(int player, int x, int y)
 }
 
 
-//No idea how to get the return type correct
 Card* GameManager::getCard(int x, int y)
 {
 
